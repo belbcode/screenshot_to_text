@@ -70,7 +70,6 @@ check = True
 
 cords = clickCheck(check)
 # cords = flatten(cords)
-print(cords)
 
 def trbl(cords):
     x0, x1, y0, y1 = cords
@@ -79,7 +78,8 @@ def trbl(cords):
     return (x, y)
 def brtl(cords):
     y, x = cords
-    return (y, x)
+    print(y, x)
+    return (x, y)
 def bltr(cords):
     x0, x1, y0, y1 = cords
     x = x0, y1
@@ -96,13 +96,13 @@ def rtnCords(cords):
     if(x[0]>y[0]):
         if(x[1] < y[1]): #top-right to bottom-left
             print("trbl")
-            return trbl(cords)
+            return trbl(flatten(cords))
         else: #bottom-right to top-left
             print("brtl")
             return brtl(cords)
     elif(x[1]>y[1]):
         print("bltr")
-        return bltr(cords)
+        return bltr(flatten(cords))
     print("tlbr")
     return x,y
 
@@ -125,15 +125,16 @@ def rtnCords(cords):
 
 #     return (x, t,u)
 
-
-# #this is the ugliest shit ever fuck you
+ 
 # cords = ltr(cords)
 # print(cords)
 # cords = flatten(cords)
 
 
 cords = rtnCords(cords)
+print(cords)
 x, y = cords
+print(x, y)
 cords = flatten(translate(x, y))
 
 print(cords)
